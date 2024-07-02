@@ -72,6 +72,7 @@ const scrollActive = () => {
 window.addEventListener("scroll", scrollActive);
 
 /*=============== PARALLAX ===============*/
+let parallax = new Rellax(".parallax");
 
 /*=============== GSAP ANIMATION ===============*/
 
