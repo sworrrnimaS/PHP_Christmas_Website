@@ -762,3 +762,10 @@ img {
 }
 
 /* For 2K+ resolutions */
+@media screen and(min-width:1700px) {
+  .home {
+    max-width: 1280px;
+    height: 990px;
+    margin-inline: auto;
+  }
+}
