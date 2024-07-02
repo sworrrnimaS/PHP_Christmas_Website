@@ -10,4 +10,5 @@
 
 ##Animations used:
 Parallax: https://dixonandmoe.com/rellax/
-GSAP:
+GSAP:https://gsap.com/
+ScrollRevealJS:https://scrollrevealjs.org/
