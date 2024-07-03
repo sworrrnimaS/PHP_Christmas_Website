@@ -51,7 +51,7 @@ label {
 }
 .register-form-container button {
   display: inline-block;
-  background-color: hsl(210, 80%, 54%);
+  background-color: #0b2e5d;
   padding: 1rem 2rem;
   border-radius: 4rem;
   color: #fff;
@@ -60,7 +60,7 @@ label {
 }
 
 .register-form-container button:hover {
-  background-color: hsl(210, 80%, 50%);
+  background-color: hsla(210, 92%, 31%, 0.7);
   box-shadow: 0 8px 32px hsla(210, 80%, 54%, 0.7);
 }
 

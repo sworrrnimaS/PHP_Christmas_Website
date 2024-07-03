@@ -1,0 +1,122 @@
+:root {
+  --animate-snow-1: animate-snow-1 5s infinite ease-in-out;
+  --animate-snow-2: animate-snow-2 5s infinite ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  overflow: hidden;
+}
+
+.home__image {
+  filter: blur(4px); /* Blur effect */
+}
+
+.dash__container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.bg-header {
+  background: none;
+}
+
+.title {
+  color: #fff;
+  font-family: "Dancing Script", cursive;
+  font-weight: 800;
+  font-size: 35px;
+}
+
+.postcard__container-1 {
+  width: 40%;
+  height: 400px;
+  position: absolute;
+  top: 42%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(102, 172, 229, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(61, 96, 122, 0.218);
+  z-index: 10;
+}
+
+.postcard__container-2 {
+  width: 40%;
+  height: 400px;
+  position: absolute;
+  top: 42%;
+  right: -15%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(102, 172, 229, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(61, 96, 122, 0.218);
+  z-index: 10;
+}
+label {
+  font-family: "Poppins", sans-serif;
+  color: rgb(27, 27, 23);
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.postcard__container-1 input[type="text"] {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #010a0e;
+  background-color: rgba(67, 123, 155, 0.2);
+}
+
+.postcard__container-1 textarea[type="text"] {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #010a0e;
+  background-color: rgba(67, 123, 155, 0.2);
+}
+.postcard__container-1 input[type="text"]::placeholder,
+.postcard__container-1 textarea[type="text"]::placeholder {
+  color: #a7ccdc;
+}
+
+.received__msg {
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #010a0e;
+  background-color: rgba(67, 123, 155, 0.2);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 10px;
+  padding-left: 5px;
+}
+.postcard__container-1 button {
+  display: inline-block;
+  background-color: #0b2e5d;
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.postcard__container-1 button:hover {
+  background-color: #0b2e5d;
+  box-shadow: 0 8px 32px hsla(210, 92%, 31%, 0.7);
+}
+h3 {
+  color: rgb(27, 27, 23);
+}

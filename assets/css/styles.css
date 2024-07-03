@@ -9,6 +9,9 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
+
+  --button-color: #0b2e5d;
+  --button-color-alt: hsla(210, 92%, 31%, 0.7);
   --first-color: hsl(210, 80%, 54%);
   --first-color-alt: hsl(210, 80%, 50%);
   --title-color: hsl(210, 24%, 90%);
@@ -350,7 +353,7 @@ img {
 /*=============== BUTTON ===============*/
 .button {
   display: inline-block;
-  background-color: var(--first-color);
+  background-color: var(--button-color);
   padding: 1rem 2rem;
   border-radius: 4rem;
   color: var(--white-color);
@@ -359,7 +362,7 @@ img {
 }
 
 .button:hover {
-  background-color: var(--first-color-alt);
+  background-color: var(--button-color-alt);
   box-shadow: 0 8px 32px hsla(210, 80%, 54%, 0.7);
 }
 
