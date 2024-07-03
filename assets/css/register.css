@@ -1,0 +1,108 @@
+:root {
+  --animate-snow-1: animate-snow-1 5s infinite ease-in-out;
+  --animate-snow-2: animate-snow-2 5s infinite ease-in-out;
+}
+
+body {
+  overflow: hidden;
+}
+.home__title {
+  margin-top: 0.5rem;
+}
+.home__image {
+  filter: blur(4px); /* Blur effect */
+}
+label {
+  font-family: "Dancing Script", cursive;
+  font-weight: 800;
+  font-size: 35px;
+  color: #fff;
+}
+
+.register-form-container {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(102, 172, 229, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(61, 96, 122, 0.218);
+  z-index: 10;
+}
+
+.register-form-container input[type="text"],
+.register-form-container input[type="email"],
+.register-form-container input[type="password"] {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #010a0e;
+  background-color: rgba(67, 123, 155, 0.2);
+}
+.register-form-container input[type="text"]::placeholder,
+.register-form-container input[type="email"]::placeholder,
+.register-form-container input[type="password"]::placeholder {
+  color: #a7ccdc;
+}
+.register-form-container button {
+  display: inline-block;
+  background-color: hsl(210, 80%, 54%);
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.register-form-container button:hover {
+  background-color: hsl(210, 80%, 50%);
+  box-shadow: 0 8px 32px hsla(210, 80%, 54%, 0.7);
+}
+
+@keyframes animate-snow-1 {
+  0%,
+  100% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+@keyframes animate-snow-2 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+}
+.register__snow-1,
+.register__snow-2,
+.register__snow-3 {
+  width: 50px;
+  position: absolute;
+}
+
+.register__snow-1 {
+  left: 5rem;
+  top: 7rem;
+  animation: var(--animate-snow-1);
+}
+
+.register__snow-2 {
+  top: 23rem;
+  right: 10rem;
+  animation: var(--animate-snow-2);
+}
+
+.register__snow-3 {
+  bottom: 20rem;
+  left: 5rem;
+  animation: var(--animate-snow-1);
+}
