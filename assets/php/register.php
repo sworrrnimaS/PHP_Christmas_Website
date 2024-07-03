@@ -8,6 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $email=$_POST['email'];
   $password=$_POST['password'];
 
+  //inserting data
   $sql = "INSERT INTO `users` (`username`, `fullname`, `email`, `password`) VALUES ('$username', '$fullname', '$email', '$password')";
 
 
