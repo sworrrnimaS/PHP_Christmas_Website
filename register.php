@@ -1,3 +1,41 @@
+<?php
+$success = 0;
+$user = 0;
+$username = $fullname = $email = $password = '';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  include 'connect.php';
+
+  //retrieving data
+  $username=htmlspecialchars($_POST['username']);
+  $fullname=htmlspecialchars($_POST['fullname']);
+  $email=htmlspecialchars($_POST['email']);
+  $password=htmlspecialchars($_POST['password']);
+
+  $sql = "Select * from users where username = '$username'";
+  $result = mysqli_query($conn,$sql);
+  if($result){
+    $num = mysqli_num_rows($result);
+    if($num > 0){
+      // echo "Username already taken";
+      $user = 1;
+    }
+    else{
+      $sql = "INSERT INTO `users` (`username`, `fullname`, `email`, `password`) VALUES ('$username', '$fullname', '$email', '$password')";
+      $result = mysqli_query($conn,$sql);
+      if($result){
+        // echo'Registration Successful';
+        $success = 1;
+        $username = $fullname = $email = $password = '';
+      }
+      else{
+            echo'Data Insert Error';
+        }
+  }
+} 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,6 +61,8 @@
     <link rel="stylesheet" href="assets/css/register.css" />
   </head>
   <body>
+  
+
     <header class="header" id="header">
       <nav class="nav container">
         <a href="" class="nav__logo">
@@ -112,24 +152,25 @@
       />
 
       <div class="register-form-container">
-        <form action="assets/php/register.php" method="post">
-          <label for="username">Username</label>
-          <input type="text" name="username" placeholder="Username" required />
-
-          <label for="fullname">Full Name</label>
-          <input type="text" name="fullname" placeholder="Fullname" required />
-          <label for="email">E-mail</label>
-          <input type="email" name="email" placeholder="Email" required />
-          <label for="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Register</button>
-        </form>
-      </div>
+      <form action="register.php" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Username" value="<?php echo htmlspecialchars($username); ?>" required />
+        <?php
+       if ($user) {
+        echo '<div style="color: red; display: inline;"><i class="ri-error-warning-fill"></i><p class="error-message" style="display: inline;">Username already taken</p></div>';
+    }
+    
+        ?>
+        <br>
+        <label for="fullname">Full Name</label>
+        <input type="text" name="fullname" placeholder="Fullname" value="<?php echo htmlspecialchars($fullname); ?>" required />
+        <label for="email">E-mail</label>
+        <input type="email" name="email" placeholder="Email" value="<?php echo htmlspecialchars($email); ?>" required />
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" value="<?php echo htmlspecialchars($password); ?>" required />
+        <button type="submit">Register</button>
+      </form>
+    </div>
       <img
         src="assets/img/snow-img.png"
         alt="register image"
