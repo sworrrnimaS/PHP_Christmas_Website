@@ -1,3 +1,37 @@
+<?php
+$login = 0;
+$invalid = 0;
+$username  = $password = '';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  include 'connect.php';
+
+  //retrieving data
+  $username=htmlspecialchars($_POST['username']);
+  $password=htmlspecialchars($_POST['password']);
+
+  $sql = "Select * from users where username = '$username' and password='$password'";
+  $result = mysqli_query($conn,$sql);
+  if($result){
+    $num = mysqli_num_rows($result);
+    if($num > 0){
+      //  echo "Login Successful";
+      $login = 1;
+      
+      $username  = $password = '';
+      session_start();
+      $_SESSION['username'] = $username;
+      header('location: userDash.php');
+    
+    }
+    else{
+    $invalid = 1;
+    }
+  }
+} 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -112,9 +146,17 @@
       />
 
       <div class="login-form-container">
-        <form>
-          <label for="email">E-mail</label>
-          <input type="email" name="email" placeholder="Email" required />
+        <form action="login.php" method="post">
+        <?php
+        if ($invalid) {
+        echo '<div style="color: 	#ff0505; display: inline;"><i class="ri-error-warning-fill"></i><p class="error-message" style="display: inline;">Invalid Username or Password</p></div>';
+    }
+    ?>
+    <br>
+          <label for="username">Username</label><br>
+          <input type="text" name="username" placeholder="Username" required /><br>
+        
+    
           <label for="password">Password</label>
           <input
             type="password"

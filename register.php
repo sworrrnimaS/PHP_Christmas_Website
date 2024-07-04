@@ -27,6 +27,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // echo'Registration Successful';
         $success = 1;
         $username = $fullname = $email = $password = '';
+        
+      session_start();
+      $_SESSION['username'] = $username;
+        header('Location: userDash.php');
+        exit(); // Ensure that no more output is sent
       }
       else{
             echo'Data Insert Error';
@@ -75,10 +80,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
               <a href="index.html" class="nav__link">Home</a>
             </li>
             <li class="nav__item">
-              <a href="register.html" class="nav__link active-link">Register</a>
+              <a href="register.php" class="nav__link active-link">Register</a>
             </li>
             <li class="nav__item">
-              <a href="login.html" class="nav__link">Login</a>
+              <a href="login.php" class="nav__link">Login</a>
             </li>
           </ul>
           <!--Close Button-->
@@ -157,7 +162,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <input type="text" name="username" placeholder="Username" value="<?php echo htmlspecialchars($username); ?>" required />
         <?php
        if ($user) {
-        echo '<div style="color: red; display: inline;"><i class="ri-error-warning-fill"></i><p class="error-message" style="display: inline;">Username already taken</p></div>';
+        echo '<div style="color: 	#ff0505; display: inline;"><i class="ri-error-warning-fill"></i><p class="error-message" style="display: inline;">Username already taken</p></div>';
     }
     
         ?>
