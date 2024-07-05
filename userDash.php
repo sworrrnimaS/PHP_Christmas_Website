@@ -4,7 +4,36 @@ if(!isset($_SESSION['username'])){
   header('location: login.php');
   exit();
 }
+include 'connect.php';
+$username = $_SESSION['username'];
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $recipient = htmlspecialchars($_POST['recipient']);
+    $message = htmlspecialchars($_POST['message']);
+    
+    // Check if the recipient exists
+    $checkRecipientSql = "SELECT u_id FROM users WHERE username = '$recipient'";
+    $recipientResult = mysqli_query($conn, $checkRecipientSql);
+    
+    if (mysqli_num_rows($recipientResult) > 0) {
+        $recipientRow = mysqli_fetch_assoc($recipientResult);
+        $recipientId = $recipientRow['u_id'];
+        
+        // Insert postcard into the cards table
+        $insertCardSql = "INSERT INTO card(recipient_id, senderUsername, receiverUsername, message) VALUES ('$recipientId', '$username', '$recipient', '$message')";
+        if (mysqli_query($conn, $insertCardSql)) {
+            echo "Postcard sent successfully!";
+        } else {
+            echo "Error: " . $insertCardSql . "<br>" . mysqli_error($conn);
+        }
+    } else {
+        echo "Recipient username not found!";
+    }
+}
+
+// Fetch received postcards
+$fetchReceivedSql = "SELECT * FROM card WHERE receiverUsername = '$username'";
+$receivedResult = mysqli_query($conn, $fetchReceivedSql);
 
 ?>
 
@@ -122,7 +151,7 @@ if(!isset($_SESSION['username'])){
         <div class="write__postcard-container">
           <p class="title">Write Postcard</p>
           <div class="postcard__container-1">
-            <form>
+            <form action="userDash.php" method="post"> 
               <label for="username">Username</label><br />
               <input
                 type="text"
@@ -146,18 +175,18 @@ if(!isset($_SESSION['username'])){
         <div class="view__postcard-container">
           <p class="title">Received Postcard</p>
           <div class="postcard__container-2">
-            <div class="postcard">
-              <h3>From: Username1</h3>
-              <p class="received__msg">
-                Happy Holidays! Wishing you all the best.
-              </p>
-            </div>
-            <div class="postcard">
-              <h3>From: Username2</h3>
-              <p class="received__msg">
-                Merry Christmas! Hope you have a wonderful time.
-              </p>
-            </div>
+          <?php
+                    if (mysqli_num_rows($receivedResult) > 0) {
+                        while ($row = mysqli_fetch_assoc($receivedResult)) {
+                            echo '<div class="postcard">';
+                            echo '<h3>From: ' . htmlspecialchars($row['senderUsername']) . '</h3>';
+                            echo '<p class="received__msg">' . htmlspecialchars($row['message']) . '</p>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<p>No postcards received yet.</p>';
+                    }
+                    ?>
           </div>
         </div>
       </div>
