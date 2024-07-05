@@ -18,8 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       //  echo "Login Successful";
       $login = 1;
       
-      $username  = $password = '';
-      session_start();
+      session_start();//store data in session
       $_SESSION['username'] = $username;
       header('location: userDash.php');
     
@@ -69,10 +68,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
               <a href="index.html" class="nav__link">Home</a>
             </li>
             <li class="nav__item">
-              <a href="register.html" class="nav__link">Register</a>
+              <a href="register.php" class="nav__link">Register</a>
             </li>
             <li class="nav__item">
-              <a href="login.html" class="nav__link active-link">Login</a>
+              <a href="login.php" class="nav__link active-link">Login</a>
             </li>
           </ul>
           <!--Close Button-->

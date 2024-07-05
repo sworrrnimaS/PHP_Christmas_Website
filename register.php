@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
       if($result){
         // echo'Registration Successful';
         $success = 1;
-        $username = $fullname = $email = $password = '';
+    
         
       session_start();
       $_SESSION['username'] = $username;

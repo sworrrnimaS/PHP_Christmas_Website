@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+  header('location: login.php');
+  exit();
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,7 +42,7 @@
         <div class="nav__menu" id="nav-menu">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="index.html" class="nav__link">Log Out</a>
+              <a href="logout.php" class="nav__link">Log Out</a>
             </li>
           </ul>
           <!--Close Button-->
@@ -57,6 +67,11 @@
       </nav>
     </header>
     <section class="home section" id="home">
+    <h1 > Welcome
+      <?php
+      echo $_SESSION['username'];
+      ?>
+    </h1>
       <!-- <img
         src="assets/img/home-moon.png"
         alt="home image"
