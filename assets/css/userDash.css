@@ -14,6 +14,15 @@ body {
   filter: blur(4px); /* Blur effect */
 }
 
+.welcome__title {
+  position: absolute;
+  font-family: "Dancing Script", cursive;
+  font-weight: 800;
+  font-size: 45px;
+  top: 3rem;
+  left: 45%;
+}
+
 .dash__container {
   display: flex;
   justify-content: space-around;
@@ -26,10 +35,11 @@ body {
 }
 
 .title {
-  color: #fff;
+  color: #82b5f8;
   font-family: "Dancing Script", cursive;
   font-weight: 800;
   font-size: 35px;
+  margin-top: 20px;
 }
 
 .postcard__container-1 {

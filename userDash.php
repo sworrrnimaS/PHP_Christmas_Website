@@ -96,7 +96,7 @@ $receivedResult = mysqli_query($conn, $fetchReceivedSql);
       </nav>
     </header>
     <section class="home section" id="home">
-    <h1 > Welcome
+    <h1 class="welcome__title"> Welcome
       <?php
       echo $_SESSION['username'];
       ?>
