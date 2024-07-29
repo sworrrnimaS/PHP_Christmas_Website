@@ -148,6 +148,10 @@ img {
   transition: background 0.4s;
 }
 
+.nav.container {
+  top: 15px;
+}
+
 .nav {
   position: relative;
   height: var(--header-height);
