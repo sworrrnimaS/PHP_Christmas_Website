@@ -1,122 +1,149 @@
+/* Importing Google Font - Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
   --animate-snow-1: animate-snow-1 5s infinite ease-in-out;
   --animate-snow-2: animate-snow-2 5s infinite ease-in-out;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html {
   scroll-behavior: smooth;
 }
 body {
+  /* background-color: #00295f; */
+  background-color: hsl(240, 2%, 11%);
+  color: white;
   overflow: hidden;
 }
-
-.home__image {
-  filter: blur(4px); /* Blur effect */
+section {
+  width: 100%;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .welcome__title {
+  text-shadow: 0 0 5px #bab2b2, 0 0 10px #ccc3c3, 0 0 20px #4e8fe4,
+    0 0 30px #0b2e5d, 0 0 40px #7c8ca2, 0 0 50px #0a72fa, 0 0 60px #1270ea;
+}
+.home__image {
+  filter: blur(4px); /* Blur effect */
+  position: relative;
+  z-index: 1;
+}
+.nav__logo,
+.nav__menu {
+  padding-top: 75px;
+}
+.welcome__title {
   position: absolute;
+  margin-top: 30px;
   font-family: "Dancing Script", cursive;
   font-weight: 800;
   font-size: 45px;
   top: 3rem;
-  left: 45%;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
 .dash__container {
   display: flex;
   justify-content: space-around;
-  margin-top: 2rem;
+  margin-top: 5rem;
   flex-wrap: wrap;
 }
-
-.bg-header {
-  background: none;
-}
-
-.title {
-  color: #82b5f8;
-  font-family: "Dancing Script", cursive;
-  font-weight: 800;
-  font-size: 35px;
-  margin-top: 20px;
-}
-
 .postcard__container-1 {
   width: 40%;
-  height: 400px;
-  position: absolute;
   top: 42%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(102, 172, 229, 0.4);
+  left: -25%;
+  height: 450px;
   padding: 20px;
+  padding-top: 0px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(61, 96, 122, 0.218);
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
   z-index: 10;
 }
-
 .postcard__container-2 {
   width: 40%;
-  height: 400px;
+  height: 450px;
   position: absolute;
   top: 42%;
   right: -15%;
   transform: translate(-50%, -50%);
-  background-color: rgba(102, 172, 229, 0.4);
-  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(61, 96, 122, 0.218);
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  padding-top: 0px;
   z-index: 10;
+  overflow-y: scroll;
 }
+
+.postcard__container-2::-webkit-scrollbar {
+  width: 3px;
+}
+
+.postcard__container-2::-webkit-scrollbar-track {
+  background: #4c4c4c; /* color of the track (the area behind the scrollbar) */
+}
+
+.postcard__container-2::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* color of the scrollbar thumb (the draggable part) */
+  border-radius: 4px; /* rounded corners */
+}
+
 label {
   font-family: "Poppins", sans-serif;
-  color: rgb(27, 27, 23);
+  color: rgb(220, 220, 216);
   font-weight: 500;
   font-size: 20px;
 }
 
-.postcard__container-1 input[type="text"] {
+.postcard__container-1 input[type="text"],
+.postcard__container-1 textarea {
+  font-size: 18px;
   width: 100%;
-  height: 50px;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   color: #010a0e;
-  background-color: rgba(67, 123, 155, 0.2);
+  background-color: hsla(202, 40%, 44%, 0.2);
 }
 
-.postcard__container-1 textarea[type="text"] {
-  width: 100%;
-  height: 150px;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: #010a0e;
-  background-color: rgba(67, 123, 155, 0.2);
-}
 .postcard__container-1 input[type="text"]::placeholder,
-.postcard__container-1 textarea[type="text"]::placeholder {
+.postcard__container-1 textarea::placeholder {
   color: #a7ccdc;
 }
 
-.received__msg {
-  height: 50px;
+.user-name {
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.user-sent-message {
+  width: 100%;
+  padding: 10px;
+  margin-top: 0;
   border: 1px solid #ccc;
   border-radius: 5px;
-  color: #010a0e;
   background-color: rgba(67, 123, 155, 0.2);
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  padding: 10px;
-  padding-left: 5px;
 }
 .postcard__container-1 button {
   display: inline-block;
   background-color: #0b2e5d;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   border-radius: 4rem;
   color: #fff;
   font-weight: 500;
@@ -127,6 +154,183 @@ label {
   background-color: #0b2e5d;
   box-shadow: 0 8px 32px hsla(210, 92%, 31%, 0.7);
 }
-h3 {
-  color: rgb(27, 27, 23);
+
+.title {
+  color: #82b5f8;
+  font-family: "Dancing Script", cursive;
+  font-weight: 800;
+  font-size: 35px;
+  margin-top: 20px;
+}
+
+.view__postcard-container {
+  position: relative;
+  z-index: 10;
+}
+.received-postcards-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+.received__msg {
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #010a0e;
+  background-color: rgba(67, 123, 155, 0.2);
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 10px;
+  padding-left: 5px;
+}
+
+.card-item {
+  margin-bottom: 4px;
+}
+/* Swiper Styles */
+.slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.card-list .card-item {
+  height: auto;
+  color: #fff;
+  user-select: none;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-list .card-item .user-received-message {
+  font-size: 1.15rem;
+  color: #e3e3e3;
+  font-weight: 500;
+  margin: 14px 0 40px;
+}
+
+.card-list .card-item .message-button {
+  font-size: 1.25rem;
+  padding: 10px 35px;
+  color: #030728;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+}
+
+.card-list .card-item .message-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.slider-wrapper .swiper-pagination-bullet {
+  background: #fff;
+  height: 13px;
+  width: 13px;
+  opacity: 0.5;
+}
+
+.slider-wrapper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.swiper-slide-button {
+  color: #fff;
+  transition: 0.2s ease;
+  margin: 0 10px;
+}
+
+.swiper-slide-button:hover {
+  color: #4658ff;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  box-shadow: 0 4px 8px rgba(165, 160, 160, 0.2); /* Add shadow */
+  transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  box-shadow: 0 8px 16px rgba(94, 87, 87, 0.4); /* Stronger shadow on hover */
+}
+.swiper-button-prev {
+  left: 310px;
+}
+
+.swiper-button-next {
+  right: 310px;
+}
+@media (max-width: 768px) {
+  .slider-wrapper {
+    margin: 0 10px 40px;
+  }
+
+  .slider-wrapper .swiper-slide-button {
+    display: none;
+  }
+}
+
+/* Snow Animation */
+
+@keyframes animate-snow-1 {
+  0%,
+  100% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+@keyframes animate-snow-2 {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+}
+.register__snow-1,
+.register__snow-2,
+.register__snow-3,
+.register__snow-4 {
+  width: 50px;
+  position: absolute;
+}
+
+.register__snow-1 {
+  left: 5rem;
+  top: 7rem;
+  animation: var(--animate-snow-1);
+}
+
+.register__snow-2 {
+  top: 23rem;
+  right: 2rem;
+  animation: var(--animate-snow-2);
+  z-index: 10;
+}
+
+.register__snow-3 {
+  bottom: 7rem;
+  left: 15rem;
+  animation: var(--animate-snow-2);
+  z-index: 10;
+}
+
+.register__snow-4 {
+  bottom: 18rem;
+  left: 55rem;
+  animation: var(--animate-snow-1);
+  z-index: 10;
 }
